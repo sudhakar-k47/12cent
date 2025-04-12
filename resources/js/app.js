@@ -6,7 +6,7 @@ import '../scss/mermaid.min.css';
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
+import { ZiggyVue } from 'ziggy-js'; // ✅ Correct import for Ziggy
 import BootstrapVueNext from 'bootstrap-vue-next';
 import vClickOutside from "click-outside-vue3";
 import VueApexCharts from "vue3-apexcharts";
@@ -17,7 +17,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import store from "./state/store";
-import i18n from './i18n'
+import i18n from './i18n';
 
 AOS.init({
     easing: 'ease-out-back',
@@ -32,7 +32,7 @@ createInertiaApp({
             .use(plugin)
             .use(store)
             .use(i18n)
-            .use(ZiggyVue)
+            .use(ZiggyVue) // 💡 works correctly now
             .use(BootstrapVueNext)
             .use(VueApexCharts)
             .use(VueTheMask)
